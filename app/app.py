@@ -29,7 +29,7 @@ if SRC_DIR not in sys.path:
 # ============================================================
 
 try:
-    from recommendation import generate_recommendations
+    from recommendation import get_recommendations as generate_recommendations
 except Exception:
     generate_recommendations = None
 
@@ -538,7 +538,8 @@ if submitted:
         if generate_recommendations is not None:
 
             recommendations = generate_recommendations(
-                input_data
+               prediction,
+               support_level
             )
 
             for i, recommendation in enumerate(
